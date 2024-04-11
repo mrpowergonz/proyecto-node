@@ -11,6 +11,7 @@ const {
 
 const { propiedadRouter } = require("./api/propiedad/propiedad.router");
 const { edificioRouter } = require("./api/edificio/edificio.router");
+const { fileRouter } = require("./api/file/file.router");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -26,6 +27,9 @@ app.get("/", (req, res) => {
 app.use("/edificio", edificioRouter);
 app.use("/propiedad", propiedadRouter);
 app.use("/propietario", propietarioRouter);
+app.use("/file" , fileRouter);
+
+//5. Listen
 app.listen(PORT, () => {
   console.log("Servidor iniciado en puerto: " + PORT);
 });
